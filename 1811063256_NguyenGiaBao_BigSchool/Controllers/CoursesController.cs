@@ -30,6 +30,7 @@ namespace _1811063256_NguyenGiaBao_BigSchool.Controllers
         // POST : Courses
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CourseViewModel viewModel)
         {
             if (!ModelState.IsValid)
