@@ -18,7 +18,6 @@ namespace _1811063256_NguyenGiaBao_BigSchool.Controllers
             _dbContext = new ApplicationDbContext();
         }
         // GET: Courses
-        [Authorize]
         public ActionResult Create()
         {
             var viewModel = new CourseViewModel

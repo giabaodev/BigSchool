@@ -19,7 +19,7 @@ namespace _1811063256_NguyenGiaBao_BigSchool.Controllers
         {
             var upcommingCourses = _dbContext.Courses
                 .Include(c => c.Lecturer)
-                .Include(c => c.Lecturer)
+                .Include(c => c.Category)
                 .Where(c => c.DateTime > DateTime.Now);
             return View(upcommingCourses);
         }
