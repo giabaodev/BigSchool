@@ -56,10 +56,7 @@
                     var button = $(e.target);
                     $.post("/api/followings", { followeeId: button.attr("data-user-id") })
                         .done(function () {
-                            button
-                                .removeClass("btn-default")
-                                .addClass("btn-info")
-                                .text("Following");
+                            button.text("Following")
                         })
                         .fail(function () {
                             alert("Something failed!");
