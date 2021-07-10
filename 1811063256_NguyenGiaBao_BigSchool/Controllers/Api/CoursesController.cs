@@ -16,7 +16,6 @@ namespace _1811063256_NguyenGiaBao_BigSchool.Controllers.Api
             _dbContext = new ApplicationDbContext();
         }
         [HttpDelete]
-        // GET: Courses
         public IHttpActionResult Cancel(int id)
         {
             var userId = User.Identity.GetUserId();

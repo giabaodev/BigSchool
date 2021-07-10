@@ -69,6 +69,16 @@ namespace _1811063256_NguyenGiaBao_BigSchool.Controllers
             return View(viewModel);
         }
         [Authorize]
+        public ActionResult Following()
+        {
+            var userId = User.Identity.GetUserId();
+            var courses = _dbContext.Followings
+                .Where(a => a.FolloweeId == userId)
+                .Select(a => a.Followee)
+                .ToList();
+            return View(courses);
+        }
+        [Authorize]
         public ActionResult Mine()
         {
             var userId = User.Identity.GetUserId();
