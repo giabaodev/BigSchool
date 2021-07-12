@@ -74,7 +74,7 @@ namespace _1811063256_NguyenGiaBao_BigSchool.Controllers
         {
             var userId = User.Identity.GetUserId();
             var courses = _dbContext.Followings
-                .Where(a => a.FolloweeId == userId)
+                .Where(a => a.FollowerId == userId)
                 .Select(a => a.Followee)
                 .ToList();
             return View(courses);
