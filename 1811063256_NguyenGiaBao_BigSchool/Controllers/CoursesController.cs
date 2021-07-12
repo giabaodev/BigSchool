@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using System.Net;
 
 namespace _1811063256_NguyenGiaBao_BigSchool.Controllers
 {
@@ -123,6 +124,14 @@ namespace _1811063256_NguyenGiaBao_BigSchool.Controllers
             course.CategoryId = viewModel.Category;
             _dbContext.SaveChanges();
             return RedirectToAction("Index", "Home");
+        }
+        [Authorize]
+        public ActionResult Delete(int id)
+        {
+            Course course = _dbContext.Courses.Find(id);
+            _dbContext.Courses.Remove(course);
+            _dbContext.SaveChanges();
+            return RedirectToAction("Mine");
         }
     }
 }

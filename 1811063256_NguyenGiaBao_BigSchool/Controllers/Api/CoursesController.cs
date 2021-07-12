@@ -1,9 +1,6 @@
 ﻿using _1811063256_NguyenGiaBao_BigSchool.Models;
 using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace _1811063256_NguyenGiaBao_BigSchool.Controllers.Api

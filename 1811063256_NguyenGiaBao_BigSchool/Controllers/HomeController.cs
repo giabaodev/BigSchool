@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using _1811063256_NguyenGiaBao_BigSchool.ViewModel;
-
+using PagedList;
 namespace _1811063256_NguyenGiaBao_BigSchool.Controllers
 {
     public class HomeController : Controller
@@ -16,12 +16,12 @@ namespace _1811063256_NguyenGiaBao_BigSchool.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
-        public ActionResult Index()
+        public ActionResult Index( int? page)
         {
             var upcommingCourses = _dbContext.Courses
                 .Include(c => c.Lecturer)
                 .Include(c => c.Category)
-                .Where(c => c.DateTime > DateTime.Now);
+                .Where(c => c.DateTime > DateTime.Now && c.IsCanceled == false);
             var viewModel = new CoursesViewModel
             {
                 UpcommingCourses = upcommingCourses,
