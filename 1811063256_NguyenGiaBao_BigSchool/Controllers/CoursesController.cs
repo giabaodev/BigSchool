@@ -84,7 +84,7 @@ namespace _1811063256_NguyenGiaBao_BigSchool.Controllers
         {
             var userId = User.Identity.GetUserId();
             var courses = _dbContext.Courses
-                .Where(c => c.LecturerId == userId && c.DateTime > DateTime.Now)
+                .Where(c => c.LecturerId == userId && c.DateTime > DateTime.Now && c.IsCanceled == false)
                 .Include(l => l.Lecturer)
                 .Include(c => c.Category)
                 .ToList();
@@ -124,14 +124,6 @@ namespace _1811063256_NguyenGiaBao_BigSchool.Controllers
             course.CategoryId = viewModel.Category;
             _dbContext.SaveChanges();
             return RedirectToAction("Index", "Home");
-        }
-        [Authorize]
-        public ActionResult Delete(int id)
-        {
-            Course course = _dbContext.Courses.Find(id);
-            _dbContext.Courses.Remove(course);
-            _dbContext.SaveChanges();
-            return RedirectToAction("Mine");
         }
     }
 }
