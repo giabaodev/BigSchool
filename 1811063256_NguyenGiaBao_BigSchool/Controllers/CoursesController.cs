@@ -14,7 +14,10 @@ namespace _1811063256_NguyenGiaBao_BigSchool.Controllers
     public class CoursesController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
-
+        public ActionResult abc()
+        {
+            return View()
+        }
         public CoursesController()
         {
             _dbContext = new ApplicationDbContext();
